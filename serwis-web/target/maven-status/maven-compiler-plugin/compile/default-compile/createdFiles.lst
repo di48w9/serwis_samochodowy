@@ -1,0 +1,5 @@
+JaxRsActivator.class
+rest\Klienci.class
+rest\Serwisanci.class
+rest\Faktury.class
+rest\UslugiCzesci.class
