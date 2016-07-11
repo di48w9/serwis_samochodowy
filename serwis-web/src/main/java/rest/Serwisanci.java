@@ -9,6 +9,7 @@ import encje.Serwisant;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
@@ -22,8 +23,8 @@ public class Serwisanci {
     @EJB
     beans.Serwisanci bean;
     
-    @GET
-    @Path("serwisanci/new")
+    @POST
+    @Path("serwisanci")
     @Produces("text/plain")
     public long dodajSerwisanta(@QueryParam("imie") String imie,@QueryParam("nazwisko") String nazwisko)
     {

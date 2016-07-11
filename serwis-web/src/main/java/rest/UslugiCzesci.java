@@ -10,6 +10,7 @@ import encje.Usluga;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
@@ -26,20 +27,11 @@ public class UslugiCzesci {
     @EJB
     private beans.UslugiCzesci bean;
     
-    @GET
-    @Path("uslugi/new")
+    @POST
+    @Path("uslugi")
     public void DodajUsluge(@QueryParam("nazwa") String nazwa)
     {
         bean.DodajUsluge(nazwa);
-    }
-    
-    @GET
-    @Path("uslugi/lel")
-    public String test() throws JAXBException
-    {
-        return (JAXBContext.newInstance(Czesc.class).getClass()).toString()+
-        (JAXBContext.newInstance(Czesc.class).getClass())+
-        (JAXBContext.newInstance(Czesc.class, Usluga.class).getClass());
     }
     
     @GET
@@ -50,8 +42,8 @@ public class UslugiCzesci {
         return bean.ListujUslugi();
     }
     
-    @GET
-    @Path("czesci/new")
+    @POST
+    @Path("czesci")
     public void DodajCzesc(@QueryParam("nazwa") String nazwa)
     {
         bean.DodajCzesc(nazwa);

@@ -10,6 +10,7 @@ import encje.Samochod;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
@@ -25,8 +26,8 @@ public class Klienci {
     @EJB
     beans.Klienci bean;
     
-    @GET
-    @Path("klienci/new")
+    @POST
+    @Path("klienci")
     @Produces("text/plain")
     public long dodajKlienta(@QueryParam("imie") String imie,@QueryParam("nazwisko") String nazwisko,@QueryParam("typ") Klient.TypKlienta typ)
     {
@@ -41,8 +42,8 @@ public class Klienci {
         return bean.ListaKlientow();
     }
     
-    @GET
-    @Path("samochody/new")
+    @POST
+    @Path("samochody")
     public void dodajSamochod(@QueryParam("klient") long klient_id,@QueryParam("VIN") String VIN,@QueryParam("RokProdukcji") int rok_produkcji)
     {
         bean.dodajSamochod(klient_id, VIN, rok_produkcji);
